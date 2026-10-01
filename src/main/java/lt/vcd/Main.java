@@ -1,17 +1,30 @@
-package lt.vcd;
+package task4;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+        System.out.print("Įveskite kraštinės a ilgį: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Įveskite kraštinės b ilgį: ");
+        double b = scanner.nextDouble();
+
+        System.out.print("Įveskite kraštinės c ilgį: ");
+        double c = scanner.nextDouble();
+
+        // Trikampio nelygybės patikrinimas
+        if (a + b > c && a + c > b && b + c > a) {
+            double p = (a + b + c) / 2.0; // Pusperimetris
+            double area = Math.sqrt(p * (p - a) * (p - b) * (p - c)); // Herono formulė
+
+            System.out.printf("Trikampio plotas: %.2f%n", area);
+        } else {
+            System.out.println("Klaida: trikampis su tokiomis kraštinėmis neegzistuoja.");
         }
+
+        scanner.close();
     }
 }
